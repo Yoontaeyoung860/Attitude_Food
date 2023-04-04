@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.layerpopup {position: fixed; top:50%; left: 50%; width: 350px; height: 350px;  transform: translateX(-50%)translateY(-50%); border-top-left-radius: 15px; border-top-right-radius: 15px; z-index: 1000; border-top-left-radius: 10px; background: url(/images/popup.jpg); background-size: 100% 100%; background-repeat: no-repeat;  }
+.layerpopup .popup_content  {width: 350px; height: 350px; box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19); position: relative; top:0; left:0;}
+.layerpopup .popup_content div {position: absolute; top:10%; left: 50%; transform: translateX(-50%); color: #333; font-size: 15px; width: 75%; text-align: center; }
+.layerpopup .popup_content h2 {color: #7daca8;}
+.layerpopup .popup_content p {margin-top: 15px;}
+.layerpopup .popup_bottom {background: #d96867; color: #fff; overflow: hidden; position: relative; top:0%; width: 350px; height: 36px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px; line-height: 36px; text-align: right;}
+.layerpopup .popup_bottom .btn_close:hover {text-decoration: underline;}
+.layerpopup .popup_bottom .btn_close {margin-left: 12px; margin-right: 20px;}
+
+.join_layerpopupbg {display: none; background: rgba(1, 1, 1, 0.8); z-index: 10; position: fixed; top: 0; left: 0; width: 100%; height: 100%; color: #000;}
+
+/*** popup ***/
+#layerpopupbg {background: rgba(1, 1, 1, 0.7); position: fixed; z-index: 999; width: 100%; height: 100%; left: 0; top: 0; color: #fff;}
+#layerpopup {border-radius: 5px 5px 0 0; max-width: 400px; text-align: center; background: #fff; margin: 10% auto; box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19); color:#000;}
+/* popup 상단 */
+.popup_title {padding-top: 30px; font-size: 18px;}
+.popup_content {font-size: 14px;}
+/* popup 하단 */
+.popup_bottom {/* background: #ccc; */ overflow: hidden; position: relative;/*  margin-top: 40px; */}
+.popup_bottom a {display: block; color:#000; float: left; width: 50%; height: 40px; line-height: 40px; text-align: center; font-size: 13px; border: 1px solid #ddd;}
+.btn_close {display: inline-block; position: relative; cursor: pointer; border-left-style: hidden !important; /* background-color: #7daca8; color:#fff !important; */}
+
+.review_write {margin-top: 3%;}
+
+@media screen and (max-width:440px){
+    #layerpopup {max-width: 320px;}
+}

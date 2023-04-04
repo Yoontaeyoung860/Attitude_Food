@@ -1,0 +1,157 @@
+@charset "utf-8";
+@import url('font.css'); /* 사이트 세부설정, 공통 클래스 설정, 기타 설정 */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap&subset=korean');
+
+/*common*/
+.common_container.sub_container>div,.common_container.shop_container>div{position:relative;}
+.shop_container,.sub_container{padding:30px 0 100px; min-height:500px;}
+.sub_contents>h3,.sub_contents>h4{text-align: center; font-size:30px; color:#444444; font-weight:500; margin-bottom:20px;}
+
+
+/*.breadcrumb*/
+.breadcrumb{position:absolute; right:30px; }
+.breadcrumb.shop_breadcrumb,.breadcrumb.sub_breadcrumb{top:15px;}
+.breadcrumb>p{font-size:0;  text-align:right;}
+.breadcrumb span{margin-left:5px; display:inline-block;  vertical-align:middle; font-size:13px;  font-family:'돋움',dotum;}
+.breadcrumb span.on{color:#222222;}
+.breadcrumb span.right_arrow{width:12px; height:12px; position:relative; overflow:hidden;}
+.breadcrumb span.right_arrow:before{content:''; height:6px; width:6px; display:block; border:1px solid #707070; border-left-width:0; border-top-width:0; 
+		transform:rotate(-45deg);-webkit-transform:rotate(-45deg); -moz-transform:rotate(-45deg);-o-transform:rotate(-45deg);
+		-ms-transform:rotate(-45deg); position:absolute; top:2px; left:0px;}
+/*shop_view_breadcrumb 제품상세페이지*/
+.breadcrumb.shop_view_breadcrumb{position:static;}
+.breadcrumb.shop_view_breadcrumb>p{text-align:left;}
+
+
+/*board_wrap  공지사항/자주묻는 질문 공통*/
+.board_wrap .menu_select_tab>a{float:left; width:50%; border:1px solid #e8e8e8; border-bottom-color:#999999; text-align:center; display:block; 
+		background-color:#f9f9f9; height:50px; line-height:50px;}
+.board_wrap .menu_select_tab01_01>a:nth-child(1),.board_wrap .menu_select_tab01_02>a:nth-child(2){border:1px solid #999999; background-color:#ffffff;}
+
+
+.faq_tab_content {display: flex; flex-direction: column; position: relative;}
+.faq_tabs {text-align: center; margin-bottom: 40px;}
+.faq_tab_content .tab_tit {float: left; width: 15%; padding: 10px 20px; background-color: #282c37; color: #fff; cursor: pointer; border-top: 3px solid #888;}
+.faq_panels {overflow: hidden;}
+/* FAQ listBox */
+.faq_list {width: 100%; border-bottom: 1px solid #888; margin-bottom: 30px;}
+.faq_list > ul {overflow: hidden; width: 100%;}
+.faq_list > ul > li {border-bottom: 1px solid #ddd;}
+.faq_list > ul > li:last-child {border-bottom-style: none;}
+/* faq listBox 제목 */
+.faq_title {position: relative; color: #282c37; margin: 0 30px 0 15px; padding: 20px 0 20px 10px; font-size: 14px; line-height: 20px; cursor: pointer; font-weight: 500; }
+.faq_title span:first-child {position: absolute; top: 50%; left: 0; transform: translate(-50%, -50%); color: #7daca8; padding-right: 15px;}
+/* .faq_title span.faq_list_tit {padding-right: 30px;} */
+.faq_title strong {display: inline-block; width: 150px; vertical-align: middle; margin-left: 40px;}
+.faq_title .fa-chevron-down {position: absolute; top: 50%; right: -30px; transform: translate(-50%, -50%); font-size: 1.2rem; color: #555;}
+/* FAQ listBox 내용 */
+.faq_conts {display: none; padding: 20px 40px; background-color:rgba(125, 172, 168, 0.138);}
+.faq_conts p {font-size: 14px; line-height: 24px; word-break: keep-all;}
+
+/*benefit_wrap 이벤트·혜택 공통*/
+.benefit_wrap .menu_select_tab02>a{float:left; width:50%; border:1px solid #e8e8e8; border-bottom-color:#999999; text-align:center; display:block; 
+		background-color:#f9f9f9; height:50px; line-height:50px;}
+.benefit_wrap .menu_select_tab02>a.active{border:1px solid #999999; border-bottom-color:#ffffff; background-color:#ffffff;}
+.benefit_wrap .menu_select_tab02_01>a:nth-child(1),.benefit_wrap .menu_select_tab02_02>a:first-child,.benefit_wrap .menu_select_tab02_03>a:nth-child(2){
+		border:1px solid #999999; background-color:#ffffff;}
+
+/* 이벤트·혜택 공통 목록 */
+.list_page {min-height: 600px;}		
+.empty_list {text-align: center; padding: 100px 0; border-bottom: 1px solid #ddd;}
+/* listBox */
+.list_style01 {width: 100%; border-bottom: 1px solid #888;}	
+.list_style01.review{border-top: 1px solid #888;}
+.list_style01 > ul {overflow: hidden; width: 100%;}
+.list_style01 > ul li {border-bottom: 1px solid #ddd;}
+.list_style01 > ul li:last-child {border-bottom-style: none;}
+
+.notis_title {position: relative; color: #282c37; margin-left: 10px; padding: 20px 0 20px 40px; font-size: 14px; line-height: 20px; cursor: pointer;}
+.notis_title a {color: #282c37;}
+.notis_title span {background-color: #7daca8; color: #fff; border-radius: 5px; padding: 5px 10px;}
+.notis_title strong {display: inline-block; width: 70%; margin-left: 50px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; vertical-align: text-bottom;}
+.notis_title .fa-chevron-down {float: right; font-size: 1.5rem; margin-right: 20px; color: #555;}
+/* listBox 내용 */
+.notis_conts {padding: 28px 30px 25px 104px; background-color:#e6e6e6;}
+.notis_conts p {font-size: 14px; line-height: 20px;} 
+
+/* 페이지 순서 */
+.prev_next_page {margin-top: 30px;}
+
+/* 에토펫 소개 & 제품선행연구소 */
+.lab_wrap {width: 80%; margin: 0 auto;}
+.lab_wrap .m_img {display: none;}
+
+
+/*1260이하 시작 */
+@media screen and (max-width:1260px){
+.sub_main{padding-top:201px;}
+.sub_main.no_banner{padding-top:171px;}
+
+
+}/*1260이하 끝 */
+
+
+
+
+/*1024이하 시작 */
+@media screen and (max-width:1024px){
+/*common*/
+.sub_contents>h3,.sub_contents>h4{font-size:28px;}
+
+/*.breadcrumb*/
+.breadcrumb{right:15px; }
+
+/* 커뮤니티 */
+.notis_title strong {margin-left: 20px;}
+
+
+}/*1024이하 끝 */
+
+
+
+
+
+/*768이하 시작 */
+@media screen and (max-width:768px){
+/*common*/
+.sub_contents>h3,.sub_contents>h4{font-size:24px;}
+
+.notis_title {padding: 15px 0 15px 15px;}
+.notis_title strong {margin-left: 15px;}
+
+.lab_wrap {width: 100%;}
+
+
+}/*768이하 끝 */
+
+/*440이하 시작 */
+@media screen and (max-width:440px){
+
+.breadcrumb {position:static; margin-bottom:10px;}
+.breadcrumb>p{display: none;}
+.breadcrumb span{font-size:12px;}
+
+.lab_wrap > img {display: none;}
+.lab_wrap .m_img {display: block;}
+
+/*** 고객센터 ***/
+/* 공지사항 */
+
+.faq_title {padding: 10px 0; font-size: 13px; letter-spacing: -0.2px;}
+.faq_title span.faq_list_tit {max-width: 80%;}
+.faq_conts {padding: 15px;}
+.faq_conts p { font-size: 13px;}
+
+/*benefit_wrap 이벤트·혜택 공통*/
+.benefit_wrap .menu_select_tab02>a{letter-spacing:-1px;}
+.notis_title{margin-left: 0; padding: 15px 0 15px 10px;}
+
+}/*440이하 끝*/
+
+
+/*360이하 시작 */
+@media screen and (max-width:360px){
+/* 커뮤니티 */
+.notis_title strong {margin-left: 5px;}
+
+}/*360이하 끝*/

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>푸드Eat티튜드</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,	minimum-scale=1.0, user-scalable=no" />
+
+
+<link rel="stylesheet" href="css/common/font.css">
+<link rel="stylesheet" href="css/swiper.css">
+<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="css/shop.css">
+
+
+<link rel="stylesheet" href="css/PaginationSetting.css">
+<link rel="stylesheet" href="css/sub.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/service/jquery.serialize-object.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<script src="js/jquery-ui.js" charset="utf-8"></script>
+<script src="js/service/common.js"></script>
+<script src="js/service/AES256-Util.js"></script>
+<script src="js/aes.js"></script>
+<script src="js/service/ui.js"></script>
+<script src="js/service/swiper.js"></script>
+
+
+<script src="/js/common/custom.js"></script>
+
+<script src="/js/service/btnScript.js"></script>
+<script src="/js/service/daumMap.js"></script>
+<script src="/js/service/kakao.js"></script>
+<script src="/js/service/product.js"></script>
+
+<!-- 카카오 주소 입력 -->
+<script src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js'></script>
+
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+
+<meta name="_csrf" th:content=""/>
+<meta name="_csrf_header" th:content=""/>
+<meta name="facebook-domain-verification" content="3uouovhke7txjrgvqan6pq0amvgln2" />
+
+<script>
+$(function(){
+	
+	if(false){
+		$("#m_header_wrap").addClass("no_banner");
+		$(".side_tm_menu_wrap").addClass("no_banner");
+		$(".cont_area").addClass("no_banner");
+		$(".shop_main").addClass("no_banner");
+		$(".sub_main").addClass("no_banner");
+		$(".searchbar_wrap").addClass("no_banner");
+		$(".tm_main_visual ").addClass("no_banner");
+	}
+	
+	var item = $(".category_layout ul li");
+	var len = $(item).length;
+	var width = 100/len;
+	$(item).css("width",width+"%");
+	
+	$(document).ready(function() {
+		var alertMesg = "";
+		
+		if(alertMesg != null && alertMesg != "") {
+			alert(alertMesg);
+		}
+	});
+	$("form").on("submit",function(){
+		
+		if($(this).find("input[name='_csrf']").length < 1)
+		{
+			$(this).append("<input type='hidden' name='_csrf' value=''>");
+		}
+	});
+
+	$.ajaxSetup({
+        headers:{ 'X-CSRF-TOKEN': '' }
+    });
+});
+</script>
+<!--// smip Start //-->
+<script type="text/javascript">
+    var smipHomeCode = "smip20210929S0848T0970";
+</script>
+<script type="text/javascript" src="//xn--hz2b15nw6b91c77vqrd.com/smip_log.js"></script>
+<!--// smip End //--> 
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>	
+<script type="text/javascript">
+	Kakao.init('3048813398f35dffcc09c665025b83b7');
+	  function chatChannel() {
+	    Kakao.Channel.chat({
+	      channelPublicId: '_YnxgWs',
+	    })
+	  }
+</script>
+</head>
+<script type="text/javascript" src="js/service/main.ui.js"></script>
+<link rel="stylesheet" href="css/common/popup.css" />
+<body>
+	<!----//wrapper----->
+	<div class="wrap main_wrap">
+		<!----//container----->
+<div class="header">
+	<!-- PC / 가로 1261이상 메뉴 시작-->
+	<div class="header_wrap01">
+		<!--회원가입 로그인및 장바구니 고객센터 메뉴 시작-->
+		<div class="top_menu">
+<script>
+	$(document).ready(function() {
+		$.ajax({
+			url: '/getBestSearchKeyword.json',
+			type: 'post',
+			data: {
+			},
+			success: function (result) {
+				var html = '';
+				var list = result.searchList;
+				for(var a = 0; a < list.length; a++) {		
+					html+='<button type="button" class="searchButton" id="searchKey'+(a+1)+'" onclick="javascript:insertSearchKeywords(this);" value="'+list[a].keywords+'">'+list[a].keywords+'</button>';
+				}
+				$("#searchKeyArea").html(html);
+			},
+			fail: function (error) {
+				console.log(error);
+			}
+		});
+	});
+	function clickSearch(e) {
+		var searchWord = $("#keyword").val();
+		
+		$.ajax({
+			url: '/insertUpdateSearchKeyword.json',
+			type: 'post',
+			data: {
+				keywords : searchWord
+			},
+			success: function (result) {
+
+			},
+			fail: function (error) {
+				console.log(error);
+			}
+		});
+		
+		if(searchWord != null && searchWord != '') {
+			location.href='/shop/list?searchKeyword=' + searchWord;
+		} else {
+			alert("검색어를 입력한 후 검색버튼을 눌러주세요.");
+		}
+	}
+	
+	function insertSearchKeywords(e) {
+		var insertWord = $(e).val();
+		
+		$("#keyword").val(insertWord);
+	}
+</script>
+<style>
+	.searchbar .hotkeyword p .searchButton {display: inline-block; padding: 0 10px; margin: 2px; font-size: 13px; text-align: center; background-color: #eee; height: 35px; line-height: 35px; border-radius: 5px; color: #7daca8;}
+</style>
+<div class="fixed_top_banner">
+	<div class="banner_background txt_type">
+		<a href="/member/join.html">회원가입 Let's Go!</a>
+	</div>
+</div>
+<div class="top_menuWrap clearfix">
+	<ul class="clearfix">	
+		<li><a href="/login">로그인</a></li>
+		<li>
+			<a href="/member/join.html">회원가입</a>
+		</li>
+		<li>
+			<a href="/cart/list">장바구니</a>
+			
+		</li>
+		<li><a href="/sub/notice">고객센터</a></li>
+		<li>
+			<a href="#" class="btn_search" title="검색">검색</a>
+		</li>
+	</ul>	
+</div>
+
+<div class="searchbar_wrap">
+	<div class="searchbar_wrapInner">
+		<div class="searchbar">
+			<form action="/shop/list" >
+				<fieldset>
+					<legend>검색</legend>
+					<input type="search" name="searchKeyword" class="contents_sch"  id="keyword" value=""/>
+					<a href="javascript:clickSearch(this);" class="btn_sch" title="검색">검색</a>
+					<button type="button" class="close_btn">
+						<i class="fas fa-times"></i>
+					</button>
+				</fieldset>	
+
+				<div class="hotkeyword">
+					<strong>추천검색어</strong>
+					<p id="searchKeyArea">
+					</p>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+		</div>
+		<!--회원가입 로그인및 장바구니 고객센터 메뉴 끝-->
+		<!--로고 및 검색 프로그램 시작-->
+		<div class="middle">
+<div class="top_menuWrap clearfix">
+	<h1><a href="/"><img src="/images/logo.png" style="margin-top: -21px;"  alt="푸드Eat티튜드" /></a></h1>
+	<div class="top_category">
+		<div class="category_layout">
+			<ul>
+					<li class="black_txt">
+						<a href="/shop/고양이꺼/list">
+							한국의 음식 예절
+						</a>				
+					</li>					
+					<li class="black_txt">
+						<a href="/shop/강아지꺼/list">
+							일본의 음식 예절 
+						</a>					
+					</li>					
+					<li class="black_txt">	
+						<a href="/shop/집사꺼/list">
+							미국의 음식 예절
+						</a>						
+					</li>					
+					<li><a href="/sub/news">커뮤니티</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+</div>
+<div class="wrap main_wrap">			
+    <di class="main" id="contents_shortcut">
+	<!--PC / 가로 1261이상 메인 슬라이드 시작-->
+    <div class="swiper-container main_visual clearfix">
+        <ul class="main_slide_list swiper-wrapper">
+                <li class="slide01 swiper-slide">
+                    <a href="https://etohpet.com/shop/P211000003/detail">
+                        <img src="images/mainslide/korean-instant-noodle.jpg" />
+                    </a>
+                </li>
+            
+                <li class="slide01 swiper-slide">
+                    <a href="https://etohpet.com/shop/P211200006/detail">
+                        <img src="images/mainslide/spaghetti.jpg" />
+                    </a>
+                </li>
+            
+                <li class="slide01 swiper-slide">
+                    <a href="https://etohpet.com/shop/P210900006/detail">
+                        <img src="/file/images?fileCode=F22030215004&width=1920&height=737" />
+                    </a>
+                </li>
+            
+                <li class="slide01 swiper-slide">
+                    <a href="https://etohpet.com/shop/P220200031/detail">
+                        <img src="/file/images?fileCode=F22030215005&width=1920&height=737" />
+                    </a>
+                </li>
+            
+                <li class="slide01 swiper-slide">
+                    <a href="https://etohpet.com/shop/P210900003/detail">
+                        <img src="/file/images?fileCode=F22030215006&width=1920&height=737" />
+                    </a>
+                </li>
+            
+                <li class="slide01 swiper-slide">
+                    <a href="https://etohpet.com/shop/P211100001/detail">
+                        <img src="/file/images?fileCode=F22030215007&width=1920&height=737" />
+                    </a>
+                </li>
+            
+                <li class="slide01 swiper-slide">
+                    <a href="https://etohpet.com/shop/P220200030/detail">
+                        <img src="/file/images?fileCode=F22030215008&width=1920&height=737" />
+                    </a>
+                </li>
+            
+                <li class="slide01 swiper-slide">
+                    <a href="https://etohpet.com/shop/P210900004/detail">
+                        <img src="/file/images?fileCode=F22030215009&width=1920&height=737" />
+                    </a>
+                </li>
+        </ul>
+</div>
+    </div>
+		</div>
+	</div>
+	<div class="header_wrap02">
+<!-- 상단 고정 배너 추가 -->
+<div class="m_fixed_top_banner">
+	<!-- 텍스트 설정 시, 시작 (글자 수 최대 32개 제한 - 반응형 360px)-->
+	<div class="banner_background txt_type">
+		<a href="/member/join">회원가입 시 1,000p 드려요♥</a>
+	</div>
+	<!-- 텍스트 및 배경색상 설정 시, 끝 -->
+	<!-- 이미지 설정 시, 시작 (이미지 사이즈 높이40px/글자 수 최대 32개 제한 - 반응형 360px) -->
+	<!-- <div class="banner_background">
+		<div class="fixed_imgBox">
+			<a href="#"><img src="./images/main/1260_ex.png" alt="fixed_top_banner"></a>
+		</div>
+	</div>	 -->				
+	<!-- 이미지 설정 시, 끝 -->
+
+</div>
+
+		<div id="m_header_wrap">
+		<div class="tm_top_menu">
+
+<div class="tm_cart_link">
+	<a href="/cart/list">
+		<img src="/images/common/icon_cart.png" alt="즐겨찾기" />
+		<div class="cart_num mo">
+			<span>0</span>
+		</div>
+	</a>
+</div>
+		</div>
+	
+
+		<!--모바일 1차,2차 카테고리 가로 메뉴 시작-->
+
+<script>
+	var swiper_1 = new Swiper('.tm_h_menu_wrap', {
+		slidesPerView: 'auto',
+		spaceBetween: 10,
+	});	
+</script>
+		</div>
+	</div><!-- 태블릿, 모바일 / 가로 1260이하 메뉴 end-->
+
+		
+
+
+
+
+
+
+
+
+
+<script>
+
+function pgMove(n){
+	location.href = "/sub/news?pageIndex=" + n;
+}
+</script>
+<div class="wrap sub_wrap shop_wrap">
+	<div class="sub_main main" id="contents_shortcut">
+		<div class="common_container sub_container list_page">
+			<div class="inner">
+				<!--contents 시작-->
+				<div class="sub_contents">
+					<h3>커뮤니티</h3>
+                       <!--제품분류/제품 브랜드 선택 조회 프로그램 시작-->	
+					<div class="shop_product_select">
+						<ul>
+							<li><a href="/sub/news" class="on">커뮤니티</a></li>
+						</ul>
+					</div><!--제품분류/제품 브랜드 선택 조회 프로그램 끝-->
+					<div class="notice_wrap board_wrap">
+						<div class="menu_select_tab menu_select_tab01_01 clearfix ">
+							<a href="/sub/news">자유게시판</a>
+							<a href="/sub/event">이벤트</a>	
+						</div>	
+						<div class="list_style01" id="list01">
+							<ul>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2200030"><strong>오늘 돈까스를 먹었어요!</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2200029"><strong>치즈 밖은 위험해:3</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2200027"><strong>돈까스는 사랑입니다만</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2200025"><strong>일식도 맛있어요:3</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2200024"><strong>뭐니뭐니해도 파스타죠</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2200023"><strong>음..전 라볶이요ㅋㅋ</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2100022"><strong>봄날엔 뭐가 맛있어요?</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2100018"><strong>요즘은 츠케멘에 빠졌어요.</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2100017"><strong>과일도 맛있는데..</strong></a>
+									</p>
+								</li>
+								
+								<li class="notis_open">
+									<p class="notis_title">
+										<span>NEWS</span>
+										<a href="news/E2100016"><strong>돈까스요</strong></a>
+									</p>
+								</li>
+								
+							</ul>
+						</div>
+						<!-- 게시물이 없을 경우 시작 -->
+						
+					</div>	
+					<div class="prev_next_page">
+						<span><a href="#" class=on><span>1</span></a>&#160;<a href="#" onclick="pgMove(2); return false;"><span>2</span></a>&#160;
+</span>
+					</div>
+					<!-- 모바일 더보기 버튼 -->
+					
+						<div class="m_prev_next_page more_wrap">
+							<button id="listBtn" data-page="1" data-last="2" type="button">MORE <em class="more_btn">(1/2)</em><i class="fas fa-chevron-down"></i> </button>
+						</div>
+					
+				</div><!--contents end-->
+			</div>
+			<!--최신 본상품 슬라이드 프로그램 시작-->
+			<div class="right_latest_product_benefit">	
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+	var swiper_6 = new Swiper('.right_benefit_banner', {
+		slidesPerView: 1,
+				spaceBetween: 10,
+				loop: true,
+		autoplay: {
+			delay: 2500,
+			disableOnInteraction: false,
+		},
+				navigation: {
+			nextEl: '.right_banner_button_next',
+						prevEl: '.right_banner_button_prev',
+		}
+	});
+	
+	var buttonPresentNext = document.getElementsByClassName('latest_product_button_next');
+	if(buttonPresentNext.length != 0) {
+		var latest_product_button_next = document.querySelector('.latest_product_button_next');
+		if (latest_product_button_next) {
+			latest_product_button_next.onclick = nextAction;
+			var nextAction = function (event) {
+				var currentPage = document.querySelector('.latest_current_page').innerText;
+				if (currentPage == 1) {
+					document.querySelector('.latest_current_page').innerText = 2;
+					$('.last_list_one').toggle();
+					$('.last_list_two').toggle();
+				}
+				else {
+					return false;
+				}
+			}
+		}
+	}
+	
+	var buttonPresentPrev = document.getElementsByClassName('latest_product_button_prev');
+	if(buttonPresentPrev.length != 0) {
+		var latest_product_button_prev = document.querySelector('.latest_product_button_prev');
+		if (latest_product_button_prev) {
+			latest_product_button_prev.onclick = prevAction;
+			var prevAction = function (event) {
+				var currentPage = document.querySelector('.latest_current_page').innerText;
+				if (currentPage == 2) {
+					document.querySelector('.latest_current_page').innerText = 1;
+					$('.last_list_one').toggle();
+					$('.last_list_two').toggle();
+				}
+				else {
+					return false;
+				}
+			}
+		}
+	}
+</script>
+
+			</div><!--최신 본상품 슬라이드 프로그램 end-->
+		</div>
+	</div>
+</div>
+		
+		<div class="etc_menu">
+			
+<div class="inner">
+	<ul class="clearfix">
+		<li><a href="/sub/notice">고객센터</a></li>
+		<li><a href="/serviceRaw">이용약관</a></li>
+		<li><a href="/privacyPolicy">개인정보보호정책</a></li>
+	</ul>
+</div>			
+		</div>
+		
+		<div class="footer">
+			
+
+
+
+
+
+
+
+
+
+<div class="inner clearfix">
+	<div class="company_info01">
+		<h5>CUSTOMER CENTER</h5>
+		<strong><a href="tel:010-6251-7551">010-6251-7551</a></strong>
+		<dl>
+			<dt>고객지원 : </dt>
+			<dd>010-6251-7551 문자 주세요.</dd>
+		</dl>
+		<dl>
+			<dt>상담시간 : </dt>
+			<dd>AM 10:00 - PM 5:00 / 주말 및 공휴일 휴무</dd>
+		</dl>
+		<dl>
+			<dt>점심시간 : </dt>
+			<dd>PM 12:00 - PM 1:30</dd>
+		</dl>
+		<div class="businessguide">
+			<h5>BUSINESS</h5>
+			<dl>
+				<dt>전화번호 : </dt>
+				<dd>010-6251-7551</dd>
+			</dl>
+			<dl>
+				<dt>이메일 : </dt>
+				<dd>tlkorancod@gmail.com</dd>
+			</dl>
+		</div>
+	</div>
+	<div class="company_info02">
+		<h5>FoodEatitude</h5>
+		<dl>
+			<dt>한국,일본,미국 음식 예절을 알자.</dt><dd>푸드Eat티튜드</dd>
+		</dl>
+		<dl>
+			<dt>만든사람</dt>
+			<dd>윤태영</dd>
+		</dl>
+	</div>
+	<div class="info_sns_Box">
+		<div class="info_inner">
+			<h5>푸드Eat티튜드</h5>
+			<ul>
+				<li>
+					<strong>윤태영</strong>
+				</li>
+			</ul>
+		</div>
+
+		<p>Copyright(C) 2023 푸드Eat티튜드. All rights reserved.</p>
+	</div>
+	<div class="top_btn">
+		<span class="icon_top">TOP</span>
+	</div>	
+</div>
+		</div>	
+	</div>	
+	<div class="overlay"><div class="loader"></div></div>
+</body>
+</html>

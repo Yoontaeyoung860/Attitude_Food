@@ -1,0 +1,656 @@
+@charset "utf-8";
+@import url('font.css'); /* 사이트 세부설정, 공통 클래스 설정, 기타 설정 */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,500,700&display=swap&subset=korean');
+
+/*common*/
+select::-ms-expand { display: none; }
+
+/*btn_wrap01  초기화, 조회하기 버튼*/
+.btn_wrap01{border-top:1px solid #dddddd; border-bottom:1px solid #dddddd; padding:20px 0 30px; text-align:center;}
+.btn_wrap01>*{display:inline-block; font-family:'Noto Sans KR', sans-serif; width:120px; padding:9px 0;}
+.btn_wrap01 .btn_reset{border:1px solid #dddddd; color:#707070; background-color:#ffffff;}
+.btn_wrap01 .btn_check{color:#ffffff; border:1px solid #7daca8; background-color:#7daca8;}
+
+/*prev-next 페이지 버튼 공통*/
+.prev_next_page{text-align:center; font-size:0;}
+.prev_next_page>*{display:inline-block; vertical-align:top;}
+.prev_next_page>span{margin:0 7px;}
+.prev_next_page>span>a{display:inline-block; font-size:12px; padding:2px 0; width:26px;  color:#aaaaaa; border:1px solid #dddddd;}
+.prev_next_page>span>a+a{margin-left:3px;}
+.prev_next_page>span>a.on{color:#ffffff;  background-color:#7daca8; border:1px solid #7daca8;}
+.prev_next_page>a.btn_page{width:26px; height:26px; background-position:center center; background-repeat:no-repeat; border:1px solid #dddddd;}
+.prev_next_page>a.first_page{background-image:url("../images/common/btn_first.jpg");}
+.prev_next_page>a.prev_page{background-image:url("../images/common/btn_prev.jpg"); margin-left:3px;}
+.prev_next_page>a.next_page{background-image:url("../images/common/btn_next.jpg");}
+.prev_next_page>a.last_page{background-image:url("../images/common/btn_last.jpg"); margin-left:3px;}
+
+.m_prev_next_page {margin-top: 30px; text-align: center; display: none;}
+.m_prev_next_page button {width: 250px; background-color: #fff; color: #888888; border: 1px solid #ddd; padding: 15px 0;}
+.m_prev_next_page button i {padding-left: 10px;}
+
+
+/*개인정보취급방침 동의 popup*/
+.counsel_application_wrap{display:none;}
+.counsel_application_layer{position:fixed; left:0; top:0; min-height:999999px; width:100%; height:100%; background-color:rgba(0,0,0,0.4);  z-index:750; }
+.counsel_application_content{position:fixed; left:50%; top:50%; width:700px; height:65%; padding:60px 20px 20px; background-color:#ffffff; 
+		box-shadow:2px 2px 4px rgba(0,0,0,0.6); border:2px solid #7daca8; overflow:hidden;  overflow-y:auto; z-index:800; -o-transform:translate(-50%,-50%);
+		transform: translate(-50%,-50%); -webkit-transform:translate(-50%,-50%); -moz-transform:translate(-50%,-50%); -ms-transform:translate(-50%,-50%);}
+.counsel_application_content>h4{width:100%;  font-weight:500; color:#ffffff; font-size:14px; text-align:center; background-color:#7daca8; padding:10px; 
+		 position:absolute; left:0; top:0;}
+.counsel_application_content fieldset{border:none;}
+.counsel_application_content legend{font-size:0;}
+/*개인정보 입력*/
+.counsel_application_input table{width:100%; border-collapse:collapse; border-spacing: 0; font-size:13px;}
+.counsel_application_input table th{font-weight:500; color:#333333; background-color:#f1f5f8; padding:8px 5px; text-align:center; border:1px solid #dddddd;}
+.counsel_application_input table td{padding:8px 15px; border:1px solid #dddddd;}
+.counsel_input_style{font-family:'Noto Sans KR',NanumGothic,'나눔고딕','돋움',dotum, sans-serif;	font-size:13px;  border:1px solid #d5d5d5;
+		padding:4px 10px; vertical-align:middle;}
+.counsel_input_style01{width:100%;}
+.counsel_input_style02{width:30%;}
+.counsel_application_input select{-webkit-appearance: none; -moz-appearance: none; appearance: none;  height:27px; width:28%; border:1px solid #d5d5d5;
+		border-radius:0; cursor:pointer; background:url("../images/shop/btn_select_arrow.png")no-repeat 95% center; padding:0 10px;}
+.counsel_application_input textarea{width:100%; padding:8px 10px; font-family: inherit; height:80px; font-size:13px; overflow-y:auto; 
+		font-family:'Noto Sans KR',NanumGothic,'나눔고딕','돋움',dotum, sans-serif; vertical-align:top;}
+/*개인정보취급방침 내용*/
+.privacy_policy_wrap{margin-top:15px;}
+.privacy_policy_wrap>h4{font-weight:500; font-size:14px; color:#333333; position:relative; margin-bottom:5px; padding-left:12px; position:relative;}
+.privacy_policy_wrap>h4:before{content:''; position:absolute; left:0; top:10px; width:4px; height:4px; background-color:#7daca8; display:block;}
+.privacy_policy_info{border:1px solid #dddddd; background-color:#f5f5f5; padding:8px 12px; height:130px; overflow-y:scroll;} 
+.privacy_policy_list>li+li{margin-top:8px;}
+.privacy_policy_list strong{color:#333333; font-weight:500;}
+.privacy_policy_list p{font-size:12px; padding-left:5px;}
+.privacy_policy_list+em{display:block; color:#7daca8; margin-top:5px; font-size:12px;padding-left:5px; line-height:1.5; }
+/*개인정보취급방침 동의 선택*/
+.agreement_check{margin-top:12px; color:#333333;}
+.agreement_check>*{ vertical-align:middle;}
+.agreement_check em{padding:0 8px; position:relative; }
+.agreement_check em:before{content:''; position:absolute; left:0; top:8px; width:3px; height:3px; background-color:#7daca8; display:block;}
+/*개인정보취급방침 동의 선택 btn*/
+.counsel_application_content .btn_wrap04{text-align:center; margin-top:25px}
+.counsel_application_content .btn_wrap04 button{width:110px; padding:10px 0; color:#333333; border:none; background-color:#cccccc; font-weight:500;}
+.counsel_application_content .btn_wrap04 button.btn_application_input_submit{background-color:#0066a4; color:#ffffff;}
+/*개인정보취급방침popup close*/
+.counsel_application_content .counsel_application_close_btn{position:absolute; right:20px; top:10px; color:#ffffff; border:none;
+		font-weight:500; background:none; }
+
+/*제품 리스트 list.asp*/
+/*제품분류/브랜드 선택 common*/
+.shop_product_select{font-size:14px; margin: 0 auto 50px;} 
+.shop_product_select ul {text-align: center;}
+.shop_product_select ul li {display: inline-block; margin: 2px; text-align: center; background-color: #fff; border: 1px solid #e1e1e1; line-height: 34px; transition: all 0.5s;}
+.shop_product_select ul li .on{background-color: #7daca8; border: 1px solid #7daca8; color:#fff;}
+.shop_product_select ul li a {display: block; padding: 0 15px; color: #404040;}
+.shop_product_select ul li:hover {background-color: #7daca8; border: 1px solid #7daca8;}
+.shop_product_select ul li:hover a {color: #fff;}
+.product_select_check{border-top:1px solid #dddddd; padding:15px 20px 0;}
+.product_select_check>*{float:left;}
+.product_select_check>h6{width:20%;}
+.product_select_check>ul{width:80%; font-size:0;}
+.product_select_check li{display:inline-block; width:20%; margin-bottom:10px; font-size:14px; vertical-align:top;}
+/*제품분류/브랜드 선택 체크*/
+.check_box{position:relative; }
+.check_box input[type="checkbox"]{position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border:0;} 
+.check_box input[type="checkbox"] + label{  display: inline-block; position: relative; padding-left: 30px; cursor: pointer;
+		-webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+.check_box input[type="checkbox"] + label:before{content: ''; position: absolute; left: 0; top: 2px; width: 16px; height:16px; line-height: 16px;
+		text-align: center; vertical-align: middle; background-color:#ffffff; border: 1px solid #cccccc;}
+.check_box input[type="checkbox"]:checked + label:before{border:1px solid #444444; background:#ffffff url("../images/common/icon_check.png")no-repeat center center;}
+/*shop_product_sort 제품 정렬*/
+.shop_product_sort{padding:30px 0 25px;}
+.shop_product_sort .total_number{float:left; font-size:14px; color:#222222;}
+.shop_product_sort .btn_sort{float:right; font-size:0; }
+.shop_product_sort .btn_sort>li{display:inline-block; vertical-align:middle; padding:0 7px;  position:relative; font-size:13px;}
+.shop_product_sort .btn_sort>li+li:before{content:''; width:1px; height:12px; display:block; background-color:#dddddd; position:absolute; left:0; top:5px;}
+.shop_product_sort .btn_sort>li:last-child{padding-right:0;}
+.shop_product_sort .btn_sort>li>a.on{color:#222222;}
+/*제품 리스트*/
+.shop_product_list>li{float:left; width:25%; position:relative; margin-bottom:30px; padding: 0 10px;}
+.shop_product_list>li div {margin: 0 auto;}
+.shop_product_list>li .product_model_name {height: 66px;}
+.shop_product_list>li a{position:absolute; left:0; top:0; width:100%; height:100%; text-indent:-999999px; overflow:hidden; font-size:0;}
+.shop_product_list .product_img {position: relative; width: 100%; box-sizing: border-box;}
+.shop_product_list .product_img img {width: 100%; height: 100%;}
+.shop_product_list .product_img img.upper_img {position: absolute; top: 0; left: 0; transition: opacity 1s; opacity: 0;}
+.shop_product_list li:hover img.upper_img {opacity: 1;}
+.shop_product_list .product_txt{position:absolute; left:0; bottom:10px; width:100%;  text-align:center; font-family:'돋움',dotum; font-weight:300; }
+.shop_product_list .product_txt>span{display:inline-block; border:1px solid #dddddd; background-color:#ffffff; padding:1px 5px; min-width:55px;}
+.shop_product_list .product_info{padding: 20px 0; text-align: center;}
+.shop_product_list .product_model_name>em{display:block; font-size:12px; color:#aaaaaa; font-weight:300; text-overflow:ellipsis; overflow: hidden; 
+		white-space:nowrap; width:100%;}
+.shop_product_list .product_model_name>strong{display:block; color:#333333; font-weight:400; text-overflow: ellipsis; overflow: hidden; 
+		white-space:nowrap; width:100%;}
+.shop_product_list strong.sale_price {color: #aaaaaa; text-decoration: line-through;}
+.shop_product_list strong.sale_price02 {color: #E65440;}
+.shop_product_list .product_price{padding-top:15px; margin-top:15px; border-top:1px solid #dddddd;}
+.shop_product_list .product_price dl{font-size:0;} 
+.shop_product_list .product_price dt,.shop_product_list .product_price dd{display:inline-block; width:50%; font-size:13px;}
+.shop_product_list .product_price dd{text-align:right;}
+.shop_product_list dd>span{font-size:18px; color:#333333; font-weight:600;}
+.shop_product_list dl.card_benefit dd>span{color:#ef2d7a;}
+
+.product_list_wrap .empty {display: none; text-align: center; font-size: 18px; padding: 100px 0; /* border-top: 1px solid #e1e1e1; border-bottom: 1px solid #e1e1e1; */}
+.product_list_wrap .empty b {color: #000;}
+
+
+
+/*제품 상세 페이지 view.asp*/
+.product_detail_left{float:left; width:43.8%;}
+.product_basic_info{float:right; width:50%; font-size:14px; color: #444;}
+.product_basic_info dl+dl{margin-top:20px;}
+.product_basic_info dt, .product_basic_info dd{float:left;}
+.product_basic_info dt{width:25%;}
+.product_basic_info dd{width:75%;}
+
+/* 추가한 css 상세페이지 내 쿠폰다운로드 */
+.per::after {content: '%';}
+.cp_area {margin: 100px auto;}
+.coupon_Box ul {margin: 0 auto; display: -webkit-box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-flex-wrap: wrap; -moz-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; box-sizing: border-box; justify-content: center;}
+.coupon_Box ul li {position: relative; box-sizing: border-box; margin-right: 2%; /* float: left; */}
+.coupon_Box ul li:nth-child(3n) {margin-right: 0;}
+.coupon_Box ul li > div {padding: 25px 30px; width: 384px; height: 180px; background-size: cover; background-repeat: no-repeat;}
+.coupon_Box ul li .cp_usable_wrap {background-image: url('../images/shop/cp_style01.png');}
+.coupon_Box ul li .cp_unusable_wrap {background-image: url('../images/shop/cp_style02.png');}
+.coupon_Box ul li .coupon_dc {overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: bold; font-size: 18px; color: #333;}
+.coupon_Box ul li .coupon_dc em {vertical-align: top; font-size: 30px; color: #7daca8;}
+.coupon_Box ul li .coupon_tit {width: 245px; margin-top: 5px; font-weight: 600; font-size: 16px; color: #333; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+.coupon_Box ul li .coupon_txt {display: block; margin-top: 20px; overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; line-height: 18px; white-space: nowrap; font-size: 12px; color: #666666;}
+.coupon_Box ul li .coupon_date {overflow: hidden; -o-text-overflow: ellipsis; text-overflow: ellipsis; line-height: 18px; white-space: nowrap; font-size: 12px; color: #666666;}
+.coupon_Box ul li p {position: absolute; right: 90px; top: 30px; color: #ff7473; border: 1px solid #ff7473; border-radius: 10px; padding: 3px;}
+.coupon_Box ul li p.unusable_txt {color: #888889; border: 1px solid #888889;}
+.coupon_Box ul li button {position: absolute; background-image: url('../images/shop/coupon_btn.png'); background-repeat: no-repeat; background-position: center; width: 60px; height: 34px; top: 60px; right: 7px; color: #fff; padding-top: 40px; letter-spacing: -0.5px;}
+
+
+
+/*제품 이미지*/
+.product_detail_view .shop_product_img .thumbnail{padding-left: 35%; margin-top: 10px;}
+.product_detail_view .shop_product_img .thumbnail::after{content: ""; display: block; clear: both;}
+.product_detail_view .shop_product_img .thumbnail span {display:inline-block; margin-right: 8px; position: relative;}
+.product_detail_view .shop_product_img .thumbnail span::before{content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #fff;opacity: .4;}
+.product_detail_view .shop_product_img .thumbnail span:hover::before{opacity: 0;}
+.product_detail_view .shop_product_img .thumbnail img{display:block; box-sizing: border-box; width: 40px !important; height: 40px;  float: left;}
+.product_detail_view .shop_product_img .thumbnail span:last-child { margin-right: 0;}
+.shop_product_img{position:relative;}
+.shop_product_img>span{display:block; width:100%;}
+.shop_product_img>span>img{width:100%;}
+.shop_product_img>em{position:absolute; right:20px; bottom:20px; display:block;}
+
+/*제품 sns 공유*/
+.sns_share{margin-top:10px; padding:18px 20px; border-top:1px solid #eeeeee; border-bottom:1px solid #eeeeee; 
+		background-color:#f7f7f7;}
+.sns_share>strong{float:left; display:block; font-size:14px; color:#444444; font-weight:400; line-height:30px;}
+.sns_share>ul{float:right; font-size:0;}
+.sns_share>ul>li{display:inline-block; font-size:13px;}
+.sns_share>ul>li+li{margin-left:8px;}
+.sns_share>ul>li>a{display:block;}
+/*product_title/제품명*/
+.product_title h5{font-size:24px; font-weight:500; color:#333333; letter-spacing:-1px; padding-bottom:20px;}
+/*제품 기본정보*/
+.basic_info_txt{padding:15px 0; border-top:1px solid #dddddd;}
+.option_select dd button{float:left; display:block; font-size:13px; background-color:#ffffff; border:1px solid #d6d6d6; color:#707070; text-align:center;
+		padding:6px 5px; width:24.25%; margin-top:2px; margin-bottom:2px;}
+.option_select dd button+button{margin-left:1%;}
+.option_select dd button:nth-child(4n+1){margin-left:0; clear:both;}
+.option_select dd button.on{background-color:#f3f3f3;}
+/*제휴카드선택*/
+.card_select fieldset{border:none;}
+.card_select legend{font-size:0;}
+.card_select select{-webkit-appearance: none; -moz-appearance: none; appearance: none; padding:5px 10px;
+		width:100%; font-family: inherit; border:1px solid #dddddd; border-radius:0; cursor:pointer;
+		background:url("../images/shop/btn_select_arrow.png")no-repeat 97% center;}
+.point_benefit{border-top:1px solid #dddddd; padding:15px 0;}
+.point_benefit p.reference,.month_rental_fee p.reference{display:inline-block; width:18px; height:18px; border-radius:100px; border:1px solid #bbbbbb; text-align:center;
+		line-height:1.0; padding-top:2px; padding-right: 2px; font-weight:500; color:#333333; font-size:12px; cursor:pointer; vertical-align:middle; position:relative;}
+.point_benefit p.reference>span,.month_rental_fee p.reference>span{display:none; position:absolute; left:-5px; top:20px; width:273px; padding:8px 10px; font-size:13px;
+		border:1px solid #999999; background-color:#ffffff; color:#666666; line-height:1.6; text-align:left;}
+.point_benefit p.reference>span:before,.month_rental_fee p.reference>span:before{content:''; width:9px; height:9px; display:block; background-color:#ffffff;
+		position:absolute; left:7px; top:-6px; border:1px solid #999999; border-left-width:0; border-bottom-width:0;
+		transform:rotate(-45deg);-webkit-transform:rotate(-45deg);-moz-transform:rotate(-45deg); -o-transform:rotate(-45deg);-ms-transform:rotate(-45deg);} 
+.point_benefit dd>a{border-bottom:1px solid #222222; color:#222222;}
+.total_rental_fee{border-top:1px solid #dddddd; padding:15px 0;}
+.delivery_fee dd span.delivery_reference {padding-left: 5px; color: #bbb; font-size: 12px;}
+.month_rental_fee{border:1px solid #dddddd; padding:15px 20px;}
+.month_rental_fee dl{font-size:0;}
+.month_rental_fee dl>*{display:inline-block; font-size:18px; vertical-align:middle; float:none;}
+.month_rental_fee dt{width:75%;}
+.month_rental_fee dd{width:25%; text-align:right;}
+.month_rental_fee dd em{font-size:26px; font-weight:600;}
+.month_rental dd em{color:#333333;}
+.card_benefit02 dd em{color:#ef2d7a;}
+.card_benefit02>dt>a{display:inline-block; background-color:#333333; border-radius:100px; padding:0 8px; color:#ffffff; vertical-align:middle; font-size:12px;}
+.btn_wrap02{margin-top:23px; font-size:0; }
+.btn_wrap02>*{display:inline-block; vertical-align:middle; color:#ffffff; text-align:center; font-size:15px; background-color:#bbbbbb;
+		border:1px solid #bbbbbb; width:39%; font-weight:500;}
+.btn_wrap02 button{margin-left:1%; height:65px;}
+.btn_wrap02>a{width:20%; background-color:#ffffff; padding:15px 0;}
+.btn_wrap02 .btn_rental{background-color:#7daca8; border:1px solid #7daca8; }
+
+/*scroll 후  생기는 렌탈/상담신청*/
+.rental_counsel_pop_wrap{position:fixed; top:61px; left:0; width:100%;  z-index:500; display:none;}
+.rental_counsel_pop_wrap.rental_counsel_up{display:block;}
+.rental_counsel_pop_wrap.rental_counsel_down{display:none;}
+.rental_counsel_pop fieldset{border:none;}
+.rental_counsel_pop legend{font-size:0;}
+.rental_counsel_pop{display: none; background-color:#ffffff; border:2px solid #18b3b7; padding:25px 10px;  font-size:13px; overflow:hidden; position:relative;}
+.rental_counsel_pop:before{content:''; width:1px; height:70%; display:block; background-color:#dddddd; position:absolute; left:28%; top:15%; }
+.rental_counsel_pop .counsel_pop{float:left; padding:0 10px;}
+.rental_counsel_pop_title{width:28%;}
+.rental_option_select{width:35%;}
+.pop_rental_fee{width:25%;}
+.pop_btn_wrap04{width:12%;}
+.rental_counsel_pop_title h3{font-size:12px; color:#ffffff; padding:2px 13px; border-radius:100px; text-align:center; display:inline-block; background-color:#18b3b7;
+		font-weight:500;}
+.rental_counsel_pop_title h5{font-size:21px; color:#333333; font-weight:500; margin-top:3px; }
+.rental_option_select dl{font-size:0;}
+.rental_option_select dl+dl{margin-top:10px;}
+.rental_option_select dl dt,.rental_option_select dl dd{display:inline-block;}
+.rental_option_select dl dt{width:25%; font-size:14px;}
+.rental_option_select dl dd{width:75%;}
+.rental_option_select select{-webkit-appearance: none; -moz-appearance: none; appearance: none; padding:5px 10px 6px;
+		width:100%; font-family: inherit; border:1px solid #dddddd; color:#999999; border-radius:0; cursor:pointer;
+		background:url("../images/shop/btn_select_arrow.png")no-repeat 97% center; font-size:13px;}
+.pop_rental_fee>div{border:1px solid #dddddd; padding:6px 10px; }
+.pop_rental_fee dl{font-size:0;}
+.pop_rental_fee dl>*{display:inline-block; font-size:14px; vertical-align:middle; float:none;}
+.pop_rental_fee dt{width:60%;}
+.pop_rental_fee dd{width:40%; text-align:right;}
+.pop_rental_fee dd em{font-size:18px; font-weight:600;}
+.month_rental02 dd em{color:#333333;}
+.card_benefit03 dd,.card_benefit03 dd em{color:#ef2d7a;}
+.card_benefit03 a{display:inline-block; width:18px; height:18px; border-radius:100px; border:1px solid #bbbbbb; text-align:center;
+		line-height:1.0; padding-top:2px; font-weight:500; color:#333333; font-size:12px; cursor:pointer; vertical-align:middle; }
+.pop_btn_wrap04 button{width:100%; display:block; margin:0 auto; font-weight:500; border:1px solid #dddddd; color:#333333; font-size:14px; 
+		background-color:#ffffff; border-radius:100px; padding:5px;}
+.pop_btn_wrap04 .btn_rental01{background-color:#18b3b7; color:#ffffff; margin-top:10px; border-color:#18b3b7;}
+
+
+
+/* 탭1_배송안내_tabel */
+.info_deliver_refund_header {display: flex; align-items: center; margin: 10px 0;}
+.info_deliver_refund_title {font-weight: 500; color: #333; font-size: 1.2em;}
+/* 탭1_배송안내_상세 */
+.info_refund_note_title {margin: 25px 0 5px; color: #424242; font-size: 1.1em;font-weight: 700; line-height: 21px;}
+.info_refund_note {margin-bottom: 10px; color: #757575; line-height: 16px;}
+.info_refund_note_list {counter-reset: index; color: #424242;}
+.info_refund_note_list > li {position: relative; padding-left: 14px;}
+.info_refund_note_list > li:before {counter-increment: index; content: counter(index) " "; font-weight: 700; position: absolute; top: 0; left: 0;}
+.info_refund_note_list > li small {color: #757575;}
+
+.info_delivery_refund_content {display: flex; flex-direction: column; position: relative; margin-top: 30px;}
+.info_delivery_refunds_content .product_tab_tit {float: left; width: 15%; padding: 10px 20px; background-color: #282c37; color: #fff; cursor: pointer; border-top: 3px solid #888;}
+.info_delivery_refund_panels {overflow: hidden;}
+
+.info_delivery_refund_list {animation: fadein .8s;} @keyframes fadein { from { opacity:0; } to { opacity:1; } }
+.info_delivery_refund_list {width: 100%; border-top: 2px solid #cccccc; border-bottom: 1px solid #dddddd; margin-bottom: 30px;}
+.info_delivery_refund_list > ul {overflow: hidden; width: 100%;}
+.info_delivery_refund_list > ul > li {border-bottom: 1px solid #eee;}
+.info_delivery_refund_ul li {list-style: disc; margin-left: 20px; line-height: 26px;}
+.info_delivery_refund_title {position: relative; color: #444444; padding: 20px 0; font-size: 16px; line-height: 20px; cursor: pointer; font-weight: bold;}
+.info_delivery_refund_title span {color: #7daca8;}
+.info_delivery_refund_title strong {display: inline-block; width: 150px; vertical-align: middle; margin-left: 40px; color: #7daca8;}
+.info_delivery_refund_title .fa-chevron-down {float: right; font-size: 1.2rem; margin-right: 20px; color: #555;}
+.info_delivery_refund_conts {display: none; padding: 10px 30px; background-color:#fafafa;}
+.info_delivery_refund_conts.on {display: block;}
+.info_delivery_refund_conts p {font-size: 14px; line-height: 20px;}
+
+
+/*제품 상세 정보,후기,문의 */
+.info_deliver_return_wrap{margin-top:150px;}
+/*제품 상세 정보,후기,문의 탭*/
+.info_deliver_return_tab>li{float:left; width:33.33333%; border-bottom:1px solid #dddddd; padding-bottom:10px; font-size:15px; color:#333333;
+		text-align:center; font-weight:500; cursor:pointer; } 
+.info_deliver_return_tab>li.active {border-bottom:2px solid #222222;}
+.product_container{margin-top:50px;}
+
+/* 상품후기 */
+.detail_review_empty .empty {display: block;text-align: center; padding: 50px 0; border-bottom: 1px solid #ccc; border-top: 2px solid #7daca8;margin: 10px 0 20px;}
+.detail_review{position: relative; margin: 30px auto;}
+.dt_review_cont {border-bottom: 1px solid #ddd; padding: 10px 0; position: relative;}
+.dt_review_cont p.option {margin-left: 20px; color: #bbbbbb; padding-right: 100px;}
+.dt_review_cont .thumb {position: absolute; top: 15px; right: 20px; width: 80px;}
+.dt_review_cont .thumb img {width: 80px; height: 80px; object-fit: cover;} 
+.dt_review_cont .inside {word-break: break-all; padding:5px 0 0;display: inline-block; margin-right: 110px;}   
+.dt_review_line{border:1px solid #7daca8; margin-top: 10px;}
+.dt_review_tit{font-size: 1.3em; display: inline-block; font-weight: 700;}
+.dt_review_average{color: #7daca8; padding-left: 10px;}
+.dt_review_right{display: inline-block; padding-left: 10px;}
+.dt_review_txt .far.fa-star{font-size: 1.3em; color: #757575;}
+.dt_review_txt span{font-size: 1.3em; color:#7daca8;}
+.dt_review_name{display: inline-block; margin-left: 20px; line-height: 30px;}
+.dt_review_name i{color:#7daca8;}
+.dt_review_name span {margin-left: 10px; border-left-style: 1px #ccc solid; color: #bbbbbb;}
+.dt_review_box{display: block; margin-left: 20px; line-height: 30px;}
+/* 페이지 수 */
+.detail_review .prev_next_page {padding: 30px 0 0;}
+
+/* 상품문의 */
+textarea {resize: none; font-family: 'Noto Sans KR', sans-serif;}
+.ask .product_ques_list_empty .empty {display:  block;text-align: center; padding: 50px 0; margin: 20px 0;}
+.ask {position: relative; margin: 30px auto;}
+.ask_top .qna_title {margin-top: 30px}
+.ask_top .qna_tit{font-size: 1.3em; font-weight: 700;}
+.ask_top .qna_tit span {margin-left: 5px}
+.ask_top .qna_text {position: relative; padding: 20px 25px; background-color: rgba(125, 172, 168, 0.138); border-radius: 5px;}
+.ask_top .qna_text p {word-break: keep-all;}
+.ask_bottom {background: #f6f6f6; margin-top: 10px; padding: 20px}
+.ask_bottom_1 ul li {display: inline-block; margin-right: 5px; cursor: pointer;line-height: 23px; padding-top: 0 25px; font-size: 14px;}
+.ask_bottom_2 select {border: 1px solid #ccc; height: 35px; display: inline-block; margin-bottom: 10px; width: 150px;}
+.ask_bottom_2 .idpw {display: inline-block;}
+.ask_bottom_2 .ask_input {border-color: #ccc; width: 20px; height: 30px; padding: 5px; vertical-align: middle;}
+.ask_bottom_2 .ask_write > div {display: inline-block; vertical-align: top;}
+.ask_bottom_2 .ask_write > div.input_box {width: 80%;}
+.ask_bottom_2 .ask_write .ask_btnBox {width: 19%;}
+.ask_bottom_2 .ask_write > div.input_box textarea {width: 100%; height: 80px; border: 1px solid #ccc; padding: 5px;}
+.ask_bottom_2 .ask_write .ask_btnBox input {font-size: 1.2em; background: #7daca8;color: #fff; height: 80px;cursor: pointer; width: 100%; border: none; border-radius: 5px;}
+
+/* 상품문의_Q_리스트 */
+.product_ques_content {display: flex; flex-direction: column; position: relative;}
+.product_ques_content .product_tab_tit {float: left; width: 15%; padding: 10px 20px; background-color: #282c37; color: #fff; cursor: pointer; border-top: 3px solid #888;}
+.product_ques_panels {overflow: hidden;}
+
+.product_ques_list {animation: fadein .8s;} @keyframes fadein { from { opacity:0; } to { opacity:1; } }
+.product_ques_list {width: 100%; border-top: 2px solid #7daca8; border-bottom: 1px solid #ccc; margin-bottom: 30px;}
+.product_ques_list > ul {overflow: hidden; width: 100%;}
+.product_ques_list > ul > li {border-bottom: 1px solid #eee;}
+.product_ques_title {position: relative; color: #282c37; padding: 20px 0 20px 20px; font-size: 14px; line-height: 20px; cursor: pointer;}
+.product_ques_title span {position: absolute;}
+.product_ques_title span i {color: #7daca8;}
+.product_ques_title strong {position: absolute; vertical-align: middle; margin-left: 30px; color: #7daca8;}
+.product_ques_title div.product_quesList_tit {padding: 0 50px 0 100px; white-space: nowrap; overflow: hidden;text-overflow: ellipsis;}
+.product_ques_title .fa-chevron-down {position: absolute; right: 0; top: 50%; transform: translate(-50%, -50%); font-size: 1.2rem; color: #555;}
+.product_ques_conts {display: none; padding: 15px 20px; background-color:#fafafa;}
+.product_ques_conts.on {display: block;}
+.product_ques_conts li {position: relative; margin-bottom: 10px;}
+.product_ques_conts strong {position: absolute; top: 0; left: 0; color: #218380;}
+.product_ques_conts p {font-size: 14px; line-height: 20px; padding-left: 20px; color: #000; position: relative;}
+.product_ques_conts p span {color: #999999; font-size: 13px;}
+.product_ques_conts p span:first-child {padding-right: 10px;}
+.product_ques_conts p span.data::before {content: ''; position: absolute; top: 4px; height: 14px; width: 1px; background-color: #999;margin-left: -5px;}
+.product_ques_conts p span.author {font-weight: 700; color: #444;}
+
+
+/*렌탈 신청서 작성 order.asp*/
+.rental_tip{color:#7daca8; font-weight:500;}
+.rental_tip li{padding-left:8px; position:relative;}
+.rental_tip li:before{content:''; width:2px; height:2px; border-radius:100px; background-color:#7daca8; display:block; position:absolute; left:0; top:12px;}
+.rental_information{margin-top:35px; border-top:1px solid #555555; padding-top:20px;}
+.rental_information>strong{font-size:15px; color:#333333; display:block; padding-left:20px; position:relative;}
+.rental_information>strong:before,.rental_information>strong:after{content:''; display:block; position:absolute;}
+.rental_information>strong:before{width:10px; height:6px; left:3px; top:8px; background-color: #18b3b7;}
+.rental_information>strong:after{height:5px; width:9px; top:11px; left:0px; border-left:2px solid #18b3b7; border-bottom:2px solid #18b3b7;}
+/*렌탈상품정보*/
+.rental_product_information table{width:100%; border-collapse:collapse; border-spacing: 0; margin-top:10px;}
+.rental_product_information table caption{font-size:0;}
+.rental_product_information table th{font-weight:500; text-align:center; font-size:14px; color:#333333; border-top:2px solid #dddddd;
+		border-bottom:1px solid #bbbbbb; padding:10px 5px; background-color:#f5f5f5;}
+.rental_product_information table td{padding:15px 15px; font-size:14px;}
+.product_information>div{font-size:0;}
+.product_information>div>div{display:inline-block; vertical-align:middle; font-size:14px;}
+.product_information_img{width:30%;}
+.product_information_img>a{display:block;}
+.product_detail_information{padding-left:40px; width:70%;}
+.product_detail_information>strong{font-size:16px; color:#333333; display:block; margin-bottom:5px;}
+.product_detail_information dl dt, .product_detail_information dl dd{float:left;}
+.product_detail_information dl dt{position:relative; padding-right:15px;}
+.product_detail_information dl dt:before{content:':'; display:block; position:absolute; right:8px; top:0;}
+.product_detail_information dl dd{color:#333333; font-weight:500;}
+.product_month_rental_fee{text-align:right; font-weight:600; color: #ef2d7a;}
+/*렌탈 고객정보*/
+.rental_customer_information fieldset{border:none;}
+.rental_customer_information legend{font-size:0;}
+.rental_customer_information i{font-size:0; display:inline-block; width:4px; height:4px; border-radius:50px; background-color:#ef2d7a;
+		margin:9px 5px 0; vertical-align:top;}
+.rental_customer_info_form{border-top:2px solid #dddddd; margin-top:10px; }
+.rental_customer_info_form dl+dl{border-top:1px solid #dddddd;}
+.rental_customer_info_form dl dt, .rental_customer_info_form dl dd{float:left; padding:15px 10px;}
+.rental_customer_info_form dl dt{width:30%; color:#333333;}
+.rental_customer_info_form dl dd{width:70%;}
+.order_input_style{font-family:'Noto Sans KR',NanumGothic,'나눔고딕','돋움',dotum, sans-serif;	font-size:13px;  border:1px solid #d5d5d5;
+		padding:4px 10px; vertical-align:middle;}
+.order_input_style01{width:50%;}
+.order_input_style02{width:30%;}
+.order_input_style03{width:30%;}
+.order_input_style04{width:100%;}
+.rental_customer_info_form select{-webkit-appearance: none; -moz-appearance: none; appearance: none;  height:27px; width:28%; border:1px solid #d5d5d5;
+		border-radius:0; cursor:pointer; background:url("../images/shop/btn_select_arrow.png")no-repeat 95% center; padding:0 10px;}
+.rental_customer_info_form textarea{width:100%; padding:8px 10px; font-family: inherit; height:80px; font-size:13px; overflow-y:auto; 
+		font-family:'Noto Sans KR',NanumGothic,'나눔고딕','돋움',dotum, sans-serif; vertical-align:top;}
+.rental_customer_info_form p+p{margin-top:5px;}
+.rental_customer_info_form .post_find{font-size:13px; height:27px; color:#ffffff; background-color:#555555; border:1px solid #555555; margin-left:3px;
+		vertical-align:middle;}
+.privacy_policy_info02{margin-top:10px; border:1px solid #dddddd; background-color:#f5f5f5; padding:15px 12px; height:150px; overflow-y:scroll;}
+.privacy_policy_info02>strong{font-weight:500; color:#555555; font-size:14px;}
+.privacy_policy_info02>ul{margin-top:8px;}
+.privacy_policy_info02>ul>li+li{margin-top:8px;}
+.privacy_policy_info02>ul>li{position:relative; padding-left:15px;}
+.privacy_policy_info02>ul>li:before{ position:absolute; left:0; top:0; display:block;}
+.privacy_policy_info02>ul>li:nth-child(1):before{content:'1.';}
+.privacy_policy_info02>ul>li:nth-child(2):before{content:'2.';}
+.privacy_policy_info02>ul>li:nth-child(3):before{content:'3.';}
+.privacy_policy_info02>ul ul{margin-top:5px;}
+.privacy_policy_info02>ul ul li{position:relative; padding-left:18px;}
+.privacy_policy_info02>ul ul li:before{ position:absolute; left:0; top:0; display:block;}
+.privacy_policy_info02>ul ul li:nth-child(1):before{content:'가.';}
+.privacy_policy_info02>ul ul li:nth-child(2):before{content:'나.';}
+.privacy_policy_info02>ul ul li p{position:relative; padding-left:6px;}
+.privacy_policy_info02>ul ul li p:before{content:''; width:2px; height:2px; display:block; position:absolute; left:0; top:11px; background-color:#707070;}
+.privacy_policy_info02>p{color:#7daca8; margin-top:5px; font-size:12px;padding-left:5px; line-height:1.5;}
+.privacy_policy_wrap02 .agreement_check02{margin-top:20px;}
+.btn_wrap05{margin-top:35px; text-align:center;}
+.btn_wrap05 .btn_order_rental{font-family:'Noto Sans KR', sans-serif; width:120px; padding:10px 0; text-align:center; color:#ffffff; 
+		border:1px solid #7daca8; background-color:#7daca8;}
+
+
+
+
+/*1260이하 시작 */
+@media screen and (max-width:1260px){
+.shop_main{padding-top:201px;}
+.shop_main.no_banner{padding-top:171px;}
+
+/*scroll 후  생기는 렌탈/상담신청*/
+.rental_counsel_pop:before{display:none;}
+.rental_counsel_pop .rental_counsel_pop_title{width:100%; float:none; margin-bottom:15px; padding-bottom:15px; border-bottom:1px solid #dddddd; }
+.rental_option_select{width:50%;}
+.pop_rental_fee{width:30%;}
+.pop_btn_wrap04{width:20%;}
+
+
+
+
+
+
+}/*1260이하 끝 */
+
+
+
+
+/*1024이하 시작 */
+@media screen and (max-width:1024px){
+/*제품 리스트 list.asp*/
+/*제품분류/브랜드 선택 common*/
+.product_select_check li{width:25%;}
+/*제품 리스트*/
+.shop_product_list>li{width:33.3333%;}
+
+/*제품 상세 페이지 view.asp*/
+.product_detail_view .shop_product_img .thumbnail{padding-left: 42%;}
+.product_detail_left{float:none; width:100%;}
+.product_basic_info{float:none; width:100%; margin-top:20px;}
+/*scroll 후  생기는 렌탈/상담신청*/
+.rental_counsel_pop{padding:15px 5px;}
+.rental_counsel_pop .rental_counsel_pop_title{margin-bottom:10px; padding-bottom:10px;} 
+.rental_counsel_pop .counsel_pop{width:100%; float:none; margin-bottom:10px; padding-bottom:10px; border-bottom:1px solid #dddddd;}
+.rental_counsel_pop .pop_rental_fee>div{border:none; padding:0;} 
+.rental_counsel_pop .pop_btn_wrap04{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.pop_btn_wrap04{text-align:center;}
+.pop_btn_wrap04 button{max-width:160px; display:inline-block; margin-right:5px;}
+.pop_btn_wrap04 .btn_rental01{margin-right:0; margin-top:0;}
+
+/*제품 상세 정보,배송 및 A/S 관련 정보,교환/반품정보 */
+.info_deliver_return_wrap{margin-top:100px;}
+
+}/*1024이하 끝 */
+
+
+
+
+/*768이하 시작 */
+@media screen and (max-width:768px){
+/*개인정보취급방침 동의 popup*/
+.counsel_application_content{width:98%; height:80%;}
+
+/* 더보기 버튼 */
+.prev_next_page {display: none;}
+.m_prev_next_page {display: block;}
+
+/*제품 리스트 list.asp*/
+/*제품 리스트*/
+.shop_product_list>li{width:50%;}
+/*제품분류/브랜드 선택 common*/
+.shop_product_select{font-size:13px;}
+.product_select_check li{width:33.3333%; font-size:13px;}
+.check_box input[type="checkbox"] + label{padding-left:25px;} 
+.shop_product_list .product_info {padding: 20px 15px;}
+.shop_product_list dd>span{font-size:15px;}
+
+/*제품 상세 페이지 view.asp*/
+.product_detail_view .shop_product_img .thumbnail{padding-left: 40%;}
+/*제품 이미지*/
+.shop_product_img>em{right:15px; bottom:15px;}
+/*제품 sns 공유*/
+.sns_share{padding:12px 15px 12px; text-align:center;}
+.sns_share>strong{float:none; font-size:0; line-height:0;}
+.sns_share>ul{float:none; }
+/*product_title/제품명*/
+.product_title h5{font-size:21px;} 
+.month_rental_fee{padding:10px 15px; }
+.month_rental_fee dl>*{font-size:14px;}
+.month_rental_fee dd em{font-size:16px;} 
+.btn_wrap02 button{height:45px;}
+.btn_wrap02>*{font-size:14px;}
+.btn_wrap02>a{padding:5px 0;}
+/*scroll 후  생기는 렌탈/상담신청*/
+.rental_counsel_pop_title h5{font-size:18px;}
+.rental_option_select dl dt{font-size:13px;}
+.pop_rental_fee dl>*{font-size:13px;}
+.pop_rental_fee dd em{font-size:16px;}
+
+/* 상품 상세 정보 내 쿠폰 다운로드 */
+.coupon_Box ul li {margin-bottom: 10px; margin-right: 0;}
+/*제품 상세 정보,배송 및 A/S 관련 정보,교환/반품정보 */
+.info_deliver_return_wrap{margin-top:70px;}
+/*제품 상세 정보,배송 및 A/S 관련 정보,교환/반품정보 선택 탭*/
+.info_deliver_return_tab>li{font-size:14px;}
+
+.dt_review_cont .thumb {top: 30px;}
+
+.product_ques_title {padding-left: 20px;}
+.product_ques_title strong {width: 100px;}
+.product_ques_conts {padding-left: 50px;}
+
+/*렌탈 신청서 작성 order.asp*/
+/*렌탈상품정보*/
+.product_information>div>div{display:block;} 
+.product_information_img{width:100%;}
+.product_detail_information{padding-left:0; width:100%; margin-top:15px;}
+.rental_product_information table {border-bottom:1px solid #dddddd;}
+.product_information{border-right:1px solid #dddddd;}
+/*렌탈 고객정보*/
+.order_input_style01{width:100%;}
+.order_input_style03{width:50%;}
+
+}/*768이하 끝 */
+
+
+
+/*650이하 시작 */
+@media screen and (max-width:650px){
+	/*제품 상세 페이지 view.asp*/
+	.product_detail_view .shop_product_img .thumbnail{padding-left: 35%;}
+}/*650이하 끝 */
+
+
+
+
+/*440이하 시작 */
+@media screen and (max-width:440px){
+
+/*개인정보 입력*/
+.counsel_application_input select{padding:0 5px;}
+.counsel_application_input textarea{padding:5px 5px;}
+/*개인정보취급방침 동의 popup*/
+.agreement_check em{display:block;}
+
+/*제품 리스트 list.asp*/
+/*제품분류/브랜드 선택 common*/
+.product_select_check{padding:15px 5px 0;}
+.product_select_check li{width:50%;}
+/*shop_product_sort 제품 정렬*/
+.shop_product_sort .total_number{float:none; text-align:center;}
+.shop_product_sort .btn_sort{float:none; text-align:center; margin-top:3px;}
+
+/*제품 리스트*/
+.shop_product_list>li{float:none; width:100%;}
+.shop_product_list>li+li{margin-left:0;}
+.shop_product_list dd>span{font-size:13px;}
+
+/*제품 상세 페이지 view.asp*/
+.product_detail_view .shop_product_img .thumbnail{padding-left: 34%;}
+.product_basic_info{font-size:13px;}
+.product_basic_info dt{width:28%;}
+.product_basic_info dd{width:72%;}
+/*제품 기본정보*/
+.option_select dd button{width:49.5%;}
+.option_select dd button:nth-child(2n+1){margin-left:0; clear:both;}
+
+/* 상품 상세 정보 내 쿠폰 다운로드 */
+.cp_area {margin: 0 auto 50px;}
+.coupon_Box ul li > div {padding: 18px 25px;}
+
+/*scroll 후  생기는 렌탈/상담신청*/
+.rental_counsel_pop_title h5{font-size:16px;}
+.rental_option_select select{font-size:12px;}
+.pop_rental_fee dd em{font-size:14px;} 
+.pop_btn_wrap04 button{max-width:110px;}
+
+/*제품 상세 정보,배송 및 A/S 관련 정보,교환/반품정보 선택 탭*/
+.info_deliver_return_tab>li{width:100%;  border:1px solid #dddddd; padding:5px;}
+.info_deliver_return_tab>li+li{margin-top:5px;}
+.info_deliver_return_tab>li.active { border:1px solid #222222;}
+.product_container{margin-top:40px;}
+
+.dt_review_name {margin-left: 10px; line-height: 24px;}
+.dt_review_cont p.option {margin-left: 10px;}
+.dt_review_box {margin-left: 10px; line-height: 20px;}
+.dt_review_cont .thumb {top: 40px; right: 10px;}
+
+.ask_top .qna_text {padding: 10px;}
+.ask_bottom {padding: 10px;}
+.ask_bottom_2 .input_box textarea {height: 57px;}
+.ask_bottom_2 .ask_write .input_box {width: 75%;}
+.ask_bottom_2 .ask_btn {width: 24%;}
+.product_ques_title {padding: 10px; margin: 0; font-size: 13px; position: relative;}
+.product_ques_title strong {width: 60px; margin-left: 15px;}
+.product_ques_title div.product_quesList_tit {padding: 0 10px 0 70px;}
+.product_ques_conts {padding: 10px;}
+.product_ques_conts p {font-size: 13px;}
+
+/*렌탈 신청서 작성 order.asp*/
+.rental_product_information table td{padding:15px 8px;}
+.order_input_style03{width:28%;}
+.rental_customer_info_form .post_find{font-size:12px;}
+
+
+}/*440이하 끝*/
+
+/*375이하 시작 */
+@media screen and (max-width:375px){
+	/*제품 상세 페이지 view.asp*/
+	.product_detail_view .shop_product_img .thumbnail{padding-left: 30%;}
+}/*375이하 끝 */
+
+/*281이하 시작 */
+@media screen and (max-width:281px){
+	/*제품 상세 페이지 view.asp*/
+	.product_detail_view .shop_product_img .thumbnail{padding-left: 25%;}
+}/*281이하 끝 */
